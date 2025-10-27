@@ -4,19 +4,23 @@
 #include <stdio.h>
 
 int main() {
-    int a, b, c;
-    scanf("%d %d %d", &a, &b, &c);
+    int n = 100, a, b, c, f = 1;
 
-    if (a > 0 && b > 0 && c > 0) 
-{
-        if (a + b > c && a + c > b && b + c > a)
-{
-printf("可以组成三角形\n");
- } else {
-printf("不能组成三角形\n");
+    while(n <= 999) {
+        a = (n - n % 100) / 100;
+        b = (n % 100 - n % 10) / 10;
+        c = n % 10;
+
+        if(a*a*a + b*b*b + c*c*c == n) {
+            if(f) {
+                printf("%d", n);
+                f = 0;
+            } else {
+                printf(" %d", n);
+            }
         }
-} else {
-printf("边长无效\n");
+
+        n++;
     }
 
     return 0;
