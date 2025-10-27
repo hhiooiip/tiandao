@@ -4,22 +4,19 @@
 #include <stdio.h>
 
 int main() {
-    int s;
-    scanf("%d", &s);
-
-    if (s < 0 || s > 100) {
-        printf("无效\n");
-    } else if (s >= 90) {
-        printf("A\n");
-    } else if (s >= 80) {
-        printf("B\n");
-    } else if (s >= 70) {
-        printf("C\n");
-    } else if (s >= 60) {
-        printf("D\n");
-    } else {
-        printf("E\n");
+    int n, a, b, c, f = 1;
+    for(n = 100; n <= 999; n++) {
+        a = (n - n % 100) / 100;
+        b = (n % 100 - n % 10) / 10;
+        c = n % 10;
+        if(a*a*a + b*b*b + c*c*c == n) {
+            if(f) {
+                printf("%d", n);
+                f = 0;
+            } else {
+                printf(" %d", n);
+            }
+        }
     }
-
     return 0;
 }
