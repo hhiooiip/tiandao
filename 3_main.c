@@ -3,27 +3,30 @@
 //陈渝
 #include <stdio.h>
 
-int main()
-{
-    int a, b;
-    char o;
-    scanf("%d %d %c", &a, &b, &o);
+int main() {
+    int n, i, f;
 
-    if (o == '+') {
-        printf("%d\n", a + b);
-    } else if (o == '-') {
-        printf("%d\n", a - b);
-    } else if (o == '*') {
-        printf("%d\n", a * b);
-    } else if (o == '/') {
-        if (b != 0) {
-            printf("%d\n", a / b);
-        } else {
-            printf("除数不能为0\n");
-        }
-    } else {
-        printf("符号错误\n");
+    scanf("%d", &n);
+
+    if(n <= 0 || n >= 50) {
+        printf("请输入1个小于50的正整数");
+        return 0;
     }
+
+    f = 1;
+    if(n == 1) f = 0;
+    else {
+        i = 2;
+        while(i * i <= n && f) {
+            if(n % i == 0) f = 0;
+            i++;
+        }
+    }
+
+    if(f)
+        printf("密钥安全，密码设置成功");
+    else
+        printf("密钥不安全，请重新输入");
 
     return 0;
 }
