@@ -2,22 +2,15 @@
 //1497798389@qq.com
 //陈渝
 #include <stdio.h>
-
-int main() {
-    int arr[5];
-    for (int i = 1; i <= 4; i++) {
-        scanf("%d", &arr[i]);
+void reverse(int a[],int n){
+    for(int i=0;i<n/2;i++){
+        int t=a[i]; a[i]=a[n-1-i]; a[n-1-i]=t;
     }
-
-    for (int i = 4; i >= 1; i--) {
-        arr[i] = arr[i-1];
-    }
-    arr[0] = 0;
-
-    for (int i = 0; i < 4; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("%d", arr[4]);
-
+}
+int main(){
+    int a[5];
+    for(int i=0;i<5;i++) scanf("%d",&a[i]);
+    reverse(a,5);
+    for(int i=0;i<5;i++) printf("%d",a[i]);
     return 0;
 }
