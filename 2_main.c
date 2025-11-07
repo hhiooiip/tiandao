@@ -2,21 +2,18 @@
 //1497798389@qq.com
 //陈渝
 #include <stdio.h>
-
-int main() {
-    int n, a, b, c, f = 1;
-    for(n = 100; n <= 999; n++) {
-        a = (n - n % 100) / 100;
-        b = (n % 100 - n % 10) / 10;
-        c = n % 10;
-        if(a*a*a + b*b*b + c*c*c == n) {
-            if(f) {
-                printf("%d", n);
-                f = 0;
-            } else {
-                printf(" %d", n);
-            }
-        }
+int main(){
+    int a[3][3];
+    for(int i=0;i<3;i++)｛
+        for(int j=0;j<3;j++)｛
+            scanf("%d",&a[i][j]);
+    ｝
+    ｝
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++)｛
+            printf("%d ",a[j][i])
+                ｝
+        printf("\n");
     }
     return 0;
 }
