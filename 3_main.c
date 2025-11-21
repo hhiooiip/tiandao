@@ -2,21 +2,19 @@
 //1497798389@qq.com
 //陈渝
 #include <stdio.h>
-int main(){
-    int a[10],t;
-    for(int i=0;i<10;i++) ｛
-        scanf("%d",&a[i]);
-    ｝
-    for(int i=0;i<9;i++)｛
-        for(int j=0;j<9-i;j++)｛
-            if(a[j]>a[j+1]){
-                t=a[j]; a[j]=a[j+1]; a[j+1]=t;
-            }
-        ｝
-    ｝
+
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    int x, y;
+    scanf("%d %d", &x, &y);
     
-    for(int i=0;i<10;i++)｛ 
-        printf("%d ",a[i])
-            ｝
+    swap(&x, &y);
+    
+    printf("%d %d\n", x, y);
     return 0;
 }
