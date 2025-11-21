@@ -2,14 +2,19 @@
 //1497798389@qq.com
 //陈渝
 #include <stdio.h>
-int power(int a,int b){
-    int f=1;
-    for(int i=0;i<b;i++) f*=a;
-    return f;
+
+void add_one(int *arr) {
+    for(int i = 0; i < 5; i++) {
+        (*(arr + i))++;
+    }
 }
-int main(){
-    int s=0;
-    for(int i=1;i<=5;i++) s+=power(i,2);
-    printf("%d",s);
+
+int main() {
+    int arr[5];
+    for(int i = 0; i < 5; i++) scanf("%d", &arr[i]);
+
+    add_one(arr);
+
+    for(int i = 0; i < 5; i++) printf("%d ", arr[i]);
     return 0;
 }
