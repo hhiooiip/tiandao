@@ -2,15 +2,23 @@
 //1497798389@qq.com
 //陈渝
 #include <stdio.h>
-void reverse(int a[],int n){
-    for(int i=0;i<n/2;i++){
-        int t=a[i]; a[i]=a[n-1-i]; a[n-1-i]=t;
+
+int main() {
+    int arr[10];
+    int *p = arr;
+    
+    for(int i = 0; i < 10; i++) scanf("%d", &arr[i]);
+
+    for(int i = 0; i < 9; i++) {
+        for(int j = 0; j < 9 - i; j++) {
+            if(*(p + j) > *(p + j + 1)) {
+                int temp = *(p + j);
+                *(p + j) = *(p + j + 1);
+                *(p + j + 1) = temp;
+            }
+        }
     }
-}
-int main(){
-    int a[5];
-    for(int i=0;i<5;i++) scanf("%d",&a[i]);
-    reverse(a,5);
-    for(int i=0;i<5;i++) printf("%d",a[i]);
+
+    for(int i = 0; i < 10; i++) printf("%d ", arr[i]);
     return 0;
 }
